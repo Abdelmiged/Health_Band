@@ -1,0 +1,12 @@
+var sheet_id = ""; // Google Sheet id that the script handles
+var sheet_name = "Health_Band";
+function doGet(e){
+var ss = SpreadsheetApp.openById(sheet_id);
+var sheet = ss.getSheetByName(sheet_name);
+var date = String(e.parameter.date);
+var temperature = String(e.parameter.temperature);
+var humditiy = String(e.parameter.humditiy);
+var heartRate = String(e.parameter.heartrate);
+var oxygenLevel = String(e.parameter.oxygenlevel);
+sheet.appendRow([date, temperature, humditiy, heartRate, oxygenLevel]);
+}
